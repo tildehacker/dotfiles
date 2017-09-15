@@ -1,0 +1,10 @@
+# Debian main repos on 20161225
+deb http://ftp.debian.org/debian/ jessie main contrib non-free
+
+# Debian updates repos on 20161225
+deb http://ftp.debian.org/debian/ jessie-updates main contrib non-free
+deb http://security.debian.org/ jessie/updates main contrib non-free
+deb http://ftp.debian.org/debian/ jessie-proposed-updates main contrib non-free
+
+# Debian backports on 20161225
+deb http://ftp.debian.org/debian/ jessie-backports main contrib non-free

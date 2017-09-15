@@ -1,0 +1,252 @@
+# i3 config file (v4)
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+
+# Add base colors on 20160625
+set $base00 #101218
+set $base01 #1f222d
+set $base02 #252936
+set $base03 #7780a1
+set $base04 #C0C5CE
+set $base05 #d1d4e0
+set $base06 #C9CCDB
+set $base07 #ffffff
+set $base08 #ee829f
+set $base09 #f99170
+set $base0A #ffefcc
+set $base0B #a5ffe1
+set $base0C #97e0ff
+set $base0D #97bbf7
+set $base0E #c0b7f9
+set $base0F #fcc09e
+
+set $mod Mod1
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+
+# Edit font on 20160625
+#font pango:DejaVu Sans Mono 12
+font pango:System San Francisco Display 12
+
+# Before i3 v4.8, we used to recommend this one as the default:
+# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# The font above is very space-efficient, that is, it looks good, sharp and
+# clear in small sizes. However, its unicode glyph coverage is limited, the old
+# X core fonts rendering does not support right-to-left and this being a bitmap
+# font, it doesn’t scale on retina/hidpi displays.
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+# Hardcode default terminal on 20160628
+#bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec --no-startup-id urxvt -e tmux
+
+# kill focused window
+bindsym $mod+Shift+A kill
+
+# start dmenu (a program launcher)
+#bindsym $mod+d exec dmenu_run
+
+# Replace dmenu by rofi on 20160625
+# Adapt rofi to multiscreen on 20161212
+bindsym $mod+d exec --no-startup-id rofi -show run -opacity "85" -bc "$base01" -bg "$base01" -fg "$base07" -hlbg "$base01" -hlfg "$base03" -font "System San Francisco Display 18"
+
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+# change focus
+# Comment shortcuts below because not same as vim on 20160625
+#bindsym $mod+j focus left
+#bindsym $mod+k focus down
+#bindsym $mod+l focus up
+#bindsym $mod+m focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+# Comment shortcuts below because not same as vim on 20160625
+#bindsym $mod+Shift+j move left
+#bindsym $mod+Shift+k move down
+#bindsym $mod+Shift+l move up
+#bindsym $mod+Shift+M move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+z layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+q focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# switch to workspace
+bindsym $mod+ampersand workspace 1
+bindsym $mod+eacute workspace 2
+bindsym $mod+quotedbl workspace 3
+bindsym $mod+apostrophe workspace 4
+bindsym $mod+parenleft workspace 5
+bindsym $mod+minus workspace 6
+bindsym $mod+egrave workspace 7
+bindsym $mod+underscore workspace 8
+bindsym $mod+ccedilla workspace 9
+bindsym $mod+agrave workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+eacute move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+egrave move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+ccedilla move container to workspace 9
+bindsym $mod+Shift+agrave move container to workspace 10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# Remove exit prompt on 20160625
+# Remove exit shortcut on 20161225
+#bindsym $mod+Shift+e exit
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        # Comment shortcuts below because not same as vim on 20160625
+        #bindsym j resize shrink width 10 px or 10 ppt
+        #bindsym k resize grow height 10 px or 10 ppt
+        #bindsym l resize shrink height 10 px or 10 ppt
+        #bindsym m resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+	# Hide workspace buttons on botton bar on 20160626
+	workspace_buttons no
+	# Use i3blocks for status on 20160625
+        status_command i3blocks -c "${HOME}/.i3/i3blocks_bottom.conf"
+	# Disable tray on 20160626
+	tray_output none
+	# Add colors on 20160625
+	colors {
+		separator $base03
+		background $base01
+		statusline $base05
+		#                  border  background text
+		focused_workspace  $base01 $base01    $base07
+		active_workspace   $base01 $base02    $base03
+		inactive_workspace $base01 $base01    $base03
+		urgent_workspace   $base01 $base01    $base08
+	}
+	# Change font on 20160625
+	font pango:System San Francisco Display 12
+}
+
+# Custom bar on 20160626
+bar {
+        status_command i3blocks -c "${HOME}/.i3/i3blocks_top.conf"
+	position top
+	colors {
+		separator $base03
+		background $base01
+		statusline $base05
+		#                  border  background text
+		focused_workspace  $base01 $base01    $base07
+		active_workspace   $base01 $base02    $base03
+		inactive_workspace $base01 $base01    $base03
+		urgent_workspace   $base01 $base01    $base08
+	}
+	font pango:System San Francisco Display 12
+}
+
+# Multimedia keys on 20160624
+bindsym XF86AudioRaiseVolume exec --no-startup-id "${HOME}/.i3/volume_inc.sh"
+bindsym XF86AudioLowerVolume exec --no-startup-id "${HOME}/.i3/volume_dec.sh"
+bindsym XF86AudioMute exec --no-startup-id "${HOME}/.i3/volume_toggle.sh"
+bindsym XF86MonBrightnessUp exec --no-startup-id "${HOME}/.i3/backlight_inc.sh"
+bindsym XF86MonBrightnessDown exec --no-startup-id "${HOME}/.i3/backlight_dec.sh"
+bindsym XF86WLAN exec --no-startup-id "${HOME}/.i3/radio_toggle.sh"
+
+# Add keyboard shotcuts on 20160624
+bindsym $mod+Shift+x exec --no-startup-id i3lock -c \#000000
+
+# Exec urxvt at startup on 20160624
+exec --no-startup-id urxvt -e tmux new 'cat ~/Documents/TODO 2> /dev/null || echo "No TODO file available." ; tmux rename-window $(basename $SHELL) ; eval $SHELL'
+
+# Set wallpaper on 20160625
+exec_always --no-startup-id feh --bg-fill "${HOME}/Pictures/wallpaper.jpg"
+
+# Window colours on 20160625
+#                       border  background text    indicator
+client.focused          $base01 $base01    $base07 $base0F
+client.focused_inactive $base02 $base02    $base03 $base0F
+client.unfocused        $base02 $base02    $base03 $base0F
+client.urgent           $base02 $base08    $base00 $base0F
+
+# Load compton for rofi opacity on 20160625
+exec_always --no-startup-id compton -f
+
+# Load xwrits counters on 20160627
+exec --no-startup-id "${HOME}/.i3/xwrits_plan.sh"
+
+# Autolock X on 20161225
+#exec --no-startup-id xautolock -time 5 -locker "i3lock -d -c \#000000"
+# Replace xautolock by xss-lock on 20161228
+exec --no-startup-id xss-lock -- i3lock -c \#000000
